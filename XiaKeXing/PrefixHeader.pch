@@ -1,0 +1,45 @@
+//
+//  PrefixHeader.pch
+//  XiaKeXing
+//
+//  Created by JOY on 17/5/19.
+//  Copyright © 2017年 JOY. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifdef __OBJC__
+
+#ifdef DEBUG
+
+#define ZYLog(...) NSLog(__VA_ARGS);
+
+#else
+
+#define ZYLog(...)
+
+#endif
+
+
+//颜色
+#define ZYColor(r, g, b) [UIColor colorWithRed:(r) / 255.0 green:(g) / 255.0 blue:(b) / 255.0 alpha:1.0]
+
+#define ZYGray(v) ZYColor(v, v, v)
+#define ZYWhite ZYColor(255, 255, 255)
+#define WBMainColor ZYColor(137, 145, 198)
+
+
+#define ZYScreenSize [UIScreen mainScreen].bounds.size
+#define  ZYSelf __weak typeof(self) weakSelf = self;
+
+//适配
+#define ZYfitSizeH(a) a / 667.0 * ZYScreenSize.height
+#define ZYfitSizeW(a) a / 375.0 * ZYScreenSize.width
+
+
+#import "UIView+ZY.h"
+
+
+#endif
+#endif /* PrefixHeader_pch */
