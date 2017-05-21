@@ -25,7 +25,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
+    self.Img.image = [[UIImage imageNamed:@"timg"] getWantImageWithSize:CGSizeMake(200, 100)];
 }
 
 - (void)setTest {

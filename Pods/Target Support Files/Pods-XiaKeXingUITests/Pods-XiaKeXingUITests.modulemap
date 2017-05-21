@@ -1,0 +1,6 @@
+framework module Pods_XiaKeXingUITests {
+  umbrella header "Pods-XiaKeXingUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

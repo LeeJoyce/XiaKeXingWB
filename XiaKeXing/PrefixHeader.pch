@@ -39,7 +39,12 @@
 
 
 #import "UIView+ZY.h"
-
+#import "UIImage+WantImage.h"
+//userDefaults
+#define KUserName @"name"
+#define KUserSex @"sex"
+#define KUserSite @"site"
+#define KUserIntroduce @"introduce"
 
 #endif
 #endif /* PrefixHeader_pch */

@@ -7,8 +7,10 @@
 //
 
 #import "XiaKeUserInfoVC.h"
-
-@interface XiaKeUserInfoVC ()
+#import "InfoCell.h"
+#import "EditInfoViewController.h"
+@interface XiaKeUserInfoVC ()<UITableViewDelegate, UITableViewDataSource>
+@property (nonatomic, strong) UITableView *tableView;
 
 @end
 
@@ -16,22 +18,105 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.title = @"个人信息";
+    [self setupTableView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setupTableView
+{
+    //    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.backgroundColor = [UIColor whiteColor];
+    self.tableView.frame = CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 64);
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    [self.tableView registerNib:[UINib nibWithNibName:@"InfoCell" bundle:nil] forCellReuseIdentifier:@"infoCell"];
+    self.tableView.tableFooterView = [UIView new];
+    [self.view addSubview:_tableView];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - Table view data source
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
 }
-*/
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    switch (section) {
+        case 0:
+            return 1;
+            break;
+            
+        case 1:
+            return 4;
+            break;
+            
+        default:
+            break;
+    }
+    return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        cell.textLabel.text = @"编辑个人信息";
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        return cell;
+    }
+    
+    InfoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"infoCell"];
+    [cell setSourceWithIndex:indexPath];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.section) {
+        case 0:{
+            EditInfoViewController *editInfo = [[EditInfoViewController alloc] init];
+            editInfo.saveBtnClickBlock = ^{
+                NSLog(@"按保存按钮了");
+                [_tableView reloadData];
+            };
+            [self.navigationController pushViewController:editInfo animated:YES];
+        }
+            
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    switch (section) {
+        case 0:
+            return @"编辑";
+            break;
+            
+        case 1:
+            return @"个人信息";
+            break;
+            
+        default:
+            break;
+    }
+    
+    return @"";
+}
+
+
+#pragma mark - lazy
+- (UITableView *)tableView
+{
+    if (_tableView == nil) {
+        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    }
+    return _tableView;
+}
 
 @end

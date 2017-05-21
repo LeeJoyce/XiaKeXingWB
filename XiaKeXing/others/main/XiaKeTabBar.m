@@ -12,6 +12,7 @@
 #import "XiaKeScenicVC.h"
 #import "XiaKeMainPage.h"
 #import "XiaKeReleaseVC.h"
+#import "SearchResultController.h"
 
 @interface XiaKeTabBar ()
 
@@ -38,7 +39,9 @@
     VC.tabBarItem.title = title;
     VC.tabBarItem.image = [UIImage imageNamed:imageName];
     VC.tabBarItem.selectedImage = [UIImage imageNamed:selImageName];
-    [self addChildViewController:VC];
+    if (VC) {
+        [self addChildViewController:VC];
+    }
 }
 
 - (void)setUpFont {
@@ -55,4 +58,14 @@
     [item setTitleTextAttributes:selA forState:UIControlStateSelected];
 }
 
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+{
+//    NSLog(@"%@", item.title);
+//    
+//    if ([item.title isEqualToString:@"发布"]) {
+//        XiaKeReleaseVC *release = [XiaKeReleaseVC new];
+//        release.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+//        [self presentViewController:release animated:YES completion:nil];
+//    }
+}
 @end

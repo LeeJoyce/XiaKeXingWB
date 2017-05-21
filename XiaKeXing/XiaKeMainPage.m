@@ -8,7 +8,7 @@
 
 #import "XiaKeMainPage.h"
 #import "XiaKeMainCell.h"
-
+#import "SearchResultController.h"
 
 @interface XiaKeMainPage ()<UISearchBarDelegate,UITableViewDataSource,UITableViewDelegate>
 
@@ -43,8 +43,22 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     XiaKeMainCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tips"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell setTest];
     return cell;
+}
+
+#pragma mark - UISearchBarDelegate
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [_search resignFirstResponder];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    SearchResultController *result = [[SearchResultController alloc] init];
+    result.searchText = searchBar.text;
+    [self.navigationController pushViewController:result animated:YES];
 }
 
 
