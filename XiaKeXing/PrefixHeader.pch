@@ -45,6 +45,7 @@
 #define KUserSex @"sex"
 #define KUserSite @"site"
 #define KUserIntroduce @"introduce"
+#import "userTokenTool.h"
 
 #endif
 #endif /* PrefixHeader_pch */

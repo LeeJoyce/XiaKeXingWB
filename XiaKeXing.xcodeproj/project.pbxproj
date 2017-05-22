@@ -33,6 +33,11 @@
 		A89485DB1ECF1BF600D0862F /* XiaKeQuestionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A89485D91ECF1BF600D0862F /* XiaKeQuestionVC.m */; };
 		A89485DC1ECF1BF600D0862F /* XiaKeQuestionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A89485DA1ECF1BF600D0862F /* XiaKeQuestionVC.xib */; };
 		A89485DF1ECF1CA800D0862F /* XiaKeInterestedTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A89485DE1ECF1CA800D0862F /* XiaKeInterestedTVC.m */; };
+		A89F2DDD1ED2E8F0009238D3 /* userTokenTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A89F2DDC1ED2E8F0009238D3 /* userTokenTool.m */; };
+		A89F2DE41ED2EAC3009238D3 /* registeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A89F2DDF1ED2EAC3009238D3 /* registeVC.m */; };
+		A89F2DE51ED2EAC3009238D3 /* registeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A89F2DE01ED2EAC3009238D3 /* registeVC.xib */; };
+		A89F2DE61ED2EAC3009238D3 /* LoginViewC.m in Sources */ = {isa = PBXBuildFile; fileRef = A89F2DE21ED2EAC3009238D3 /* LoginViewC.m */; };
+		A89F2DE71ED2EAC3009238D3 /* LoginViewC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A89F2DE31ED2EAC3009238D3 /* LoginViewC.xib */; };
 		D9CB8B7B4AE9FB378B3741CC /* Pods_XiaKeXing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E859DA4ED01CAC406094A271 /* Pods_XiaKeXing.framework */; };
 		E915D9DC1ED14E9A00256D7E /* InfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E915D9DA1ED14E9A00256D7E /* InfoCell.m */; };
 		E915D9DD1ED14E9A00256D7E /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E915D9DB1ED14E9A00256D7E /* InfoCell.xib */; };
@@ -123,6 +128,14 @@
 		A89485DA1ECF1BF600D0862F /* XiaKeQuestionVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XiaKeQuestionVC.xib; sourceTree = "<group>"; };
 		A89485DD1ECF1CA800D0862F /* XiaKeInterestedTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XiaKeInterestedTVC.h; sourceTree = "<group>"; };
 		A89485DE1ECF1CA800D0862F /* XiaKeInterestedTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XiaKeInterestedTVC.m; sourceTree = "<group>"; };
+		A89F2DDB1ED2E8F0009238D3 /* userTokenTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userTokenTool.h; sourceTree = "<group>"; };
+		A89F2DDC1ED2E8F0009238D3 /* userTokenTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userTokenTool.m; sourceTree = "<group>"; };
+		A89F2DDE1ED2EAC3009238D3 /* registeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = registeVC.h; sourceTree = "<group>"; };
+		A89F2DDF1ED2EAC3009238D3 /* registeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = registeVC.m; sourceTree = "<group>"; };
+		A89F2DE01ED2EAC3009238D3 /* registeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = registeVC.xib; sourceTree = "<group>"; };
+		A89F2DE11ED2EAC3009238D3 /* LoginViewC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewC.h; sourceTree = "<group>"; };
+		A89F2DE21ED2EAC3009238D3 /* LoginViewC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewC.m; sourceTree = "<group>"; };
+		A89F2DE31ED2EAC3009238D3 /* LoginViewC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewC.xib; sourceTree = "<group>"; };
 		E859DA4ED01CAC406094A271 /* Pods_XiaKeXing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XiaKeXing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E915D9D91ED14E9A00256D7E /* InfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoCell.h; sourceTree = "<group>"; };
 		E915D9DA1ED14E9A00256D7E /* InfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoCell.m; sourceTree = "<group>"; };
@@ -292,13 +305,15 @@
 		A89485AF1ECE9BE100D0862F /* tools */ = {
 			isa = PBXGroup;
 			children = (
-				E9E15C721ED18EA4001288BD /* Search */,
-				E9E15C6A1ED1847E001288BD /* WebVC */,
 				A89485B11ECE9C2300D0862F /* UIView+ZY.h */,
 				A89485B21ECE9C2300D0862F /* UIView+ZY.m */,
 				A89485B41ECE9D2100D0862F /* PrefixHeader.pch */,
 				E9E15C9B1ED1A63C001288BD /* UIImage+WantImage.h */,
 				E9E15C9C1ED1A63C001288BD /* UIImage+WantImage.m */,
+				A89F2DDB1ED2E8F0009238D3 /* userTokenTool.h */,
+				A89F2DDC1ED2E8F0009238D3 /* userTokenTool.m */,
+				E9E15C721ED18EA4001288BD /* Search */,
+				E9E15C6A1ED1847E001288BD /* WebVC */,
 			);
 			name = tools;
 			sourceTree = "<group>";
@@ -433,6 +448,12 @@
 		E9ED9D5B1ECFD77C00F5481B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A89F2DDE1ED2EAC3009238D3 /* registeVC.h */,
+				A89F2DDF1ED2EAC3009238D3 /* registeVC.m */,
+				A89F2DE01ED2EAC3009238D3 /* registeVC.xib */,
+				A89F2DE11ED2EAC3009238D3 /* LoginViewC.h */,
+				A89F2DE21ED2EAC3009238D3 /* LoginViewC.m */,
+				A89F2DE31ED2EAC3009238D3 /* LoginViewC.xib */,
 				A89485C21ECE9F2C00D0862F /* XiaKeUserVC.h */,
 				A89485C31ECE9F2C00D0862F /* XiaKeUserVC.m */,
 				A89485CE1ECF16EB00D0862F /* XiaKeUserVC.xib */,
@@ -594,7 +615,9 @@
 				E9E15C971ED1A108001288BD /* XiaKeReleaseVC.xib in Resources */,
 				E9E15C651ED18158001288BD /* ScenicKindsCell.xib in Resources */,
 				A89485771ECE94A900D0862F /* Assets.xcassets in Resources */,
+				A89F2DE71ED2EAC3009238D3 /* LoginViewC.xib in Resources */,
 				A89485751ECE94A900D0862F /* Main.storyboard in Resources */,
+				A89F2DE51ED2EAC3009238D3 /* registeVC.xib in Resources */,
 				E9E15C9A1ED1A108001288BD /* SuccessSubmitController.xib in Resources */,
 				A89485CB1ECEC0DD00D0862F /* XiaKeMainCell.xib in Resources */,
 				A89485DC1ECF1BF600D0862F /* XiaKeQuestionVC.xib in Resources */,
@@ -774,11 +797,14 @@
 				E915D9E01ED14F3D00256D7E /* EditInfoViewController.m in Sources */,
 				A89485B31ECE9C2300D0862F /* UIView+ZY.m in Sources */,
 				A89485A81ECE951300D0862F /* ViewController.m in Sources */,
+				A89F2DE41ED2EAC3009238D3 /* registeVC.m in Sources */,
 				A89485D61ECF1BBC00D0862F /* XiaKeUserInfoVC.m in Sources */,
 				A89485DB1ECF1BF600D0862F /* XiaKeQuestionVC.m in Sources */,
 				E9E15C6E1ED18487001288BD /* WebViewController.m in Sources */,
 				E915D9DC1ED14E9A00256D7E /* InfoCell.m in Sources */,
 				A89485C41ECE9F2C00D0862F /* XiaKeUserVC.m in Sources */,
+				A89F2DDD1ED2E8F0009238D3 /* userTokenTool.m in Sources */,
+				A89F2DE61ED2EAC3009238D3 /* LoginViewC.m in Sources */,
 				A89485A71ECE951300D0862F /* AppDelegate.m in Sources */,
 				E9E15C691ED181A6001288BD /* ScenicModel.m in Sources */,
 				A89485AE1ECE9B4F00D0862F /* XiaKeTabBar.m in Sources */,

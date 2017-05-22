@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -14,7 +20,119 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9t-uz-eCA">
+                    <rect key="frame" x="0.0" y="84" width="375" height="45"/>
+                    <color key="backgroundColor" red="0.75287357259999999" green="0.91571459070000005" blue="0.9154492863" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="haq-F5-hwx"/>
+                    </constraints>
+                    <state key="normal" title="    我要提问">
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="askClick:" destination="-1" eventType="touchUpInside" id="r3R-Al-gEB"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t9y-jm-vVy">
+                    <rect key="frame" x="0.0" y="193" width="375" height="45"/>
+                    <color key="backgroundColor" red="0.75287357259999999" green="0.91571459070000005" blue="0.9154492863" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="T8Y-lp-6Vl"/>
+                    </constraints>
+                    <state key="normal" title="    什么地点">
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="addressClick:" destination="-1" eventType="touchUpInside" id="W7s-eY-UP1"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rnl-yV-4Xv">
+                    <rect key="frame" x="0.0" y="258" width="375" height="45"/>
+                    <color key="backgroundColor" red="0.75287357259999999" green="0.91571459070000005" blue="0.9154492863" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="sXP-Mx-4km"/>
+                    </constraints>
+                    <state key="normal" title="    什么风景">
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="sensicClick:" destination="-1" eventType="touchUpInside" id="geh-qx-Az5"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kC-DP-fAG">
+                    <rect key="frame" x="0.0" y="323" width="375" height="45"/>
+                    <color key="backgroundColor" red="0.75287357259999999" green="0.91571459070000005" blue="0.9154492863" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="Mh2-gM-0xq"/>
+                    </constraints>
+                    <state key="normal" title="    我要提问">
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="what:" destination="-1" eventType="touchUpInside" id="EGJ-DQ-5mY"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PXX-eZ-CQS">
+                    <rect key="frame" x="337" y="95" width="23" height="23"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="PXX-eZ-CQS" secondAttribute="height" multiplier="1:1" id="Zq9-f7-Rsv"/>
+                    </constraints>
+                    <state key="normal" image="next"/>
+                    <connections>
+                        <action selector="askedClick:" destination="-1" eventType="touchUpInside" id="sDR-jz-7DG"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6HN-PL-4TT">
+                    <rect key="frame" x="329" y="201" width="31" height="30"/>
+                    <state key="normal" title="回答"/>
+                    <connections>
+                        <action selector="addressedClick:" destination="-1" eventType="touchUpInside" id="CS4-6B-uKU"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1XG-Q5-9zQ">
+                    <rect key="frame" x="329" y="265" width="31" height="30"/>
+                    <state key="normal" title="回答"/>
+                    <connections>
+                        <action selector="sensicedClick:" destination="-1" eventType="touchUpInside" id="HxL-sK-Ozl"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2m-V9-1VH">
+                    <rect key="frame" x="329" y="330" width="31" height="30"/>
+                    <state key="normal" title="回答"/>
+                    <connections>
+                        <action selector="whtaede:" destination="-1" eventType="touchUpInside" id="OJf-xI-1wO"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Y2m-V9-1VH" firstAttribute="centerX" secondItem="1XG-Q5-9zQ" secondAttribute="centerX" id="11C-rf-gWr"/>
+                <constraint firstItem="C9t-uz-eCA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3ly-HG-gHg"/>
+                <constraint firstAttribute="trailing" secondItem="6HN-PL-4TT" secondAttribute="trailing" constant="15" id="51a-nC-bWP"/>
+                <constraint firstAttribute="trailing" secondItem="rnl-yV-4Xv" secondAttribute="trailing" id="9n0-jz-J6M"/>
+                <constraint firstItem="rnl-yV-4Xv" firstAttribute="top" secondItem="t9y-jm-vVy" secondAttribute="bottom" constant="20" id="MNk-jT-X42"/>
+                <constraint firstAttribute="trailing" secondItem="PXX-eZ-CQS" secondAttribute="trailing" constant="15" id="NIr-nf-WE2"/>
+                <constraint firstAttribute="trailing" secondItem="C9t-uz-eCA" secondAttribute="trailing" id="Qk5-tw-ZkM"/>
+                <constraint firstAttribute="trailing" secondItem="5kC-DP-fAG" secondAttribute="trailing" id="U8s-op-p9e"/>
+                <constraint firstItem="6HN-PL-4TT" firstAttribute="centerY" secondItem="t9y-jm-vVy" secondAttribute="centerY" id="Y1q-H9-KJg"/>
+                <constraint firstItem="1XG-Q5-9zQ" firstAttribute="centerX" secondItem="6HN-PL-4TT" secondAttribute="centerX" id="YDn-4Y-XnE"/>
+                <constraint firstItem="PXX-eZ-CQS" firstAttribute="height" secondItem="C9t-uz-eCA" secondAttribute="height" multiplier="0.5" id="Z2A-WQ-GZN"/>
+                <constraint firstItem="5kC-DP-fAG" firstAttribute="top" secondItem="rnl-yV-4Xv" secondAttribute="bottom" constant="20" id="Zwg-n6-FDf"/>
+                <constraint firstItem="5kC-DP-fAG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bWK-ez-5UT"/>
+                <constraint firstItem="Y2m-V9-1VH" firstAttribute="centerY" secondItem="5kC-DP-fAG" secondAttribute="centerY" id="ejH-er-cxx"/>
+                <constraint firstItem="C9t-uz-eCA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="fE0-WS-qAY"/>
+                <constraint firstItem="rnl-yV-4Xv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gvp-Fd-Jes"/>
+                <constraint firstItem="1XG-Q5-9zQ" firstAttribute="centerY" secondItem="rnl-yV-4Xv" secondAttribute="centerY" id="hTk-fc-EjL"/>
+                <constraint firstItem="t9y-jm-vVy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lSe-9W-Maw"/>
+                <constraint firstItem="t9y-jm-vVy" firstAttribute="top" secondItem="C9t-uz-eCA" secondAttribute="bottom" constant="64" id="oPe-Lj-8tU"/>
+                <constraint firstItem="PXX-eZ-CQS" firstAttribute="centerY" secondItem="C9t-uz-eCA" secondAttribute="centerY" id="tPS-RF-pjI"/>
+                <constraint firstAttribute="trailing" secondItem="t9y-jm-vVy" secondAttribute="trailing" id="wwK-I7-fLm"/>
+            </constraints>
+            <point key="canvasLocation" x="25.5" y="52.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="next" width="48" height="48"/>
+    </resources>
 </document>
