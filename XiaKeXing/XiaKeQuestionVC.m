@@ -7,6 +7,8 @@
 //
 
 #import "XiaKeQuestionVC.h"
+#import "XiaKeAskVC.h"
+#import "XiaKeAnswerVC.h"
 
 @interface XiaKeQuestionVC ()
 
@@ -20,21 +22,29 @@
 }
 
 - (IBAction)askClick:(id)sender {
+    [self.navigationController pushViewController:[[XiaKeAskVC alloc] init] animated:YES];
 }
 - (IBAction)askedClick:(id)sender {
+    [self.navigationController pushViewController:[[XiaKeAskVC alloc] init] animated:YES];
 }
 - (IBAction)addressClick:(id)sender {
+    [self.navigationController pushViewController:[[XiaKeAnswerVC alloc] init] animated:YES];
 }
 - (IBAction)addressedClick:(id)sender {
+      [self.navigationController pushViewController:[[XiaKeAnswerVC alloc] init] animated:YES];
 }
 - (IBAction)sensicClick:(id)sender {
+      [self.navigationController pushViewController:[[XiaKeAnswerVC alloc] init] animated:YES];
 }
 - (IBAction)sensicedClick:(id)sender {
+      [self.navigationController pushViewController:[[XiaKeAnswerVC alloc] init] animated:YES];
 }
 - (IBAction)what:(id)sender {
+      [self.navigationController pushViewController:[[XiaKeAnswerVC alloc] init] animated:YES];
 }
 
 - (IBAction)whtaede:(id)sender {
+      [self.navigationController pushViewController:[[XiaKeAnswerVC alloc] init] animated:YES];
 }
 
 

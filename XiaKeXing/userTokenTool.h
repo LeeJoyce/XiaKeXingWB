@@ -14,6 +14,7 @@
 + (NSString *)getAccont;
 + (NSString *)getSecret;
 + (NSData *)getIcon;
++ (NSString *)getName;
 
 +(void)removeUserKey;
 

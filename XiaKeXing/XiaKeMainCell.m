@@ -19,17 +19,28 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *Img;
 
+
 @end
 
 @implementation XiaKeMainCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.agree.layer.borderColor = WBMainColor.CGColor;
+    self.agree.layer.borderWidth = 1;
+    [self.agree addTarget:self action:@selector(agreeClick:) forControlEvents:UIControlEventTouchUpInside];
     self.Img.image = [[UIImage imageNamed:@"timg"] getWantImageWithSize:CGSizeMake(200, 100)];
 }
 
-- (void)setTest {
-  
+- (void)agreeClick:(UIButton *)btn {
+    btn.selected = !btn.selected;
+    if (btn.selected == YES) {
+        [btn setTitleColor:WBMainColor forState:UIControlStateNormal];
+    }else [btn setTitleColor:ZYGray(200) forState:UIControlStateNormal];
+}
+
+- (void)setTestWithDict:(NSDictionary *)dict {
+    self.name.text = dict[@"nick"];
 }
 
 

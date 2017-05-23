@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		34B5AED800A6E468765AFE7F /* Pods_XiaKeXingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78BC6E50D9C1F6D5A17C810A /* Pods_XiaKeXingTests.framework */; };
 		39FB9762DC60AC34668ABB77 /* Pods_XiaKeXingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EF257386707B872F8E9C8D2 /* Pods_XiaKeXingUITests.framework */; };
+		A8364AF11ED42C7F00EDD65D /* XiaKeAskVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A8364AEF1ED42C7F00EDD65D /* XiaKeAskVC.m */; };
+		A8364AF21ED42C7F00EDD65D /* XiaKeAskVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8364AF01ED42C7F00EDD65D /* XiaKeAskVC.xib */; };
+		A8364AF61ED42C9A00EDD65D /* XiaKeAnswerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A8364AF41ED42C9A00EDD65D /* XiaKeAnswerVC.m */; };
+		A8364AF71ED42C9A00EDD65D /* XiaKeAnswerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8364AF51ED42C9A00EDD65D /* XiaKeAnswerVC.xib */; };
+		A8364AFA1ED44DF600EDD65D /* demo1.json in Resources */ = {isa = PBXBuildFile; fileRef = A8364AF91ED44DF600EDD65D /* demo1.json */; };
 		A89485751ECE94A900D0862F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A89485731ECE94A900D0862F /* Main.storyboard */; };
 		A89485771ECE94A900D0862F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A89485761ECE94A900D0862F /* Assets.xcassets */; };
 		A894857A1ECE94A900D0862F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A89485781ECE94A900D0862F /* LaunchScreen.storyboard */; };
@@ -85,6 +90,13 @@
 		78BC6E50D9C1F6D5A17C810A /* Pods_XiaKeXingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XiaKeXingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9906045C2E9C67EB1EE15F1C /* Pods-XiaKeXingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XiaKeXingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XiaKeXingTests/Pods-XiaKeXingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9EF257386707B872F8E9C8D2 /* Pods_XiaKeXingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XiaKeXingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8364AEE1ED42C7F00EDD65D /* XiaKeAskVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XiaKeAskVC.h; sourceTree = "<group>"; };
+		A8364AEF1ED42C7F00EDD65D /* XiaKeAskVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XiaKeAskVC.m; sourceTree = "<group>"; };
+		A8364AF01ED42C7F00EDD65D /* XiaKeAskVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XiaKeAskVC.xib; sourceTree = "<group>"; };
+		A8364AF31ED42C9A00EDD65D /* XiaKeAnswerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XiaKeAnswerVC.h; sourceTree = "<group>"; };
+		A8364AF41ED42C9A00EDD65D /* XiaKeAnswerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XiaKeAnswerVC.m; sourceTree = "<group>"; };
+		A8364AF51ED42C9A00EDD65D /* XiaKeAnswerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XiaKeAnswerVC.xib; sourceTree = "<group>"; };
+		A8364AF91ED44DF600EDD65D /* demo1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = demo1.json; sourceTree = "<group>"; };
 		A89485671ECE94A900D0862F /* XiaKeXing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XiaKeXing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A89485741ECE94A900D0862F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A89485761ECE94A900D0862F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -211,6 +223,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A8364AF81ED44DDD00EDD65D /* json */ = {
+			isa = PBXGroup;
+			children = (
+				A8364AF91ED44DF600EDD65D /* demo1.json */,
+			);
+			name = json;
+			sourceTree = "<group>";
+		};
 		A894855E1ECE94A900D0862F = {
 			isa = PBXGroup;
 			children = (
@@ -322,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				A89485C51ECEC06A00D0862F /* Controller */,
+				A8364AF81ED44DDD00EDD65D /* json */,
 				A89485C61ECEC07B00D0862F /* View */,
 			);
 			name = Home;
@@ -467,6 +488,12 @@
 				A89485D81ECF1BF600D0862F /* XiaKeQuestionVC.h */,
 				A89485D91ECF1BF600D0862F /* XiaKeQuestionVC.m */,
 				A89485DA1ECF1BF600D0862F /* XiaKeQuestionVC.xib */,
+				A8364AEE1ED42C7F00EDD65D /* XiaKeAskVC.h */,
+				A8364AEF1ED42C7F00EDD65D /* XiaKeAskVC.m */,
+				A8364AF01ED42C7F00EDD65D /* XiaKeAskVC.xib */,
+				A8364AF31ED42C9A00EDD65D /* XiaKeAnswerVC.h */,
+				A8364AF41ED42C9A00EDD65D /* XiaKeAnswerVC.m */,
+				A8364AF51ED42C9A00EDD65D /* XiaKeAnswerVC.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -604,10 +631,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A89485CF1ECF16EB00D0862F /* XiaKeUserVC.xib in Resources */,
+				A8364AF71ED42C9A00EDD65D /* XiaKeAnswerVC.xib in Resources */,
 				E9E15C7A1ED193E6001288BD /* NullView.xib in Resources */,
+				A8364AFA1ED44DF600EDD65D /* demo1.json in Resources */,
 				E915D9E81ED1523500256D7E /* EditInfoCell.xib in Resources */,
 				E9E15C711ED189AB001288BD /* scenic.txt in Resources */,
 				E9E15C6F1ED18487001288BD /* WebViewController.xib in Resources */,
+				A8364AF21ED42C7F00EDD65D /* XiaKeAskVC.xib in Resources */,
 				A89485A01ECE950800D0862F /* Info.plist in Resources */,
 				A89485D71ECF1BBC00D0862F /* XiaKeUserInfoVC.xib in Resources */,
 				A894857A1ECE94A900D0862F /* LaunchScreen.storyboard in Resources */,
@@ -792,6 +822,7 @@
 				E9E15C991ED1A108001288BD /* SuccessSubmitController.m in Sources */,
 				A89485CA1ECEC0DD00D0862F /* XiaKeMainCell.m in Sources */,
 				E9E15C981ED1A108001288BD /* SelectLocationMapController.m in Sources */,
+				A8364AF11ED42C7F00EDD65D /* XiaKeAskVC.m in Sources */,
 				A89485AB1ECE9AC100D0862F /* XiaKeNav.m in Sources */,
 				E9E15C791ED193E6001288BD /* NullView.m in Sources */,
 				E915D9E01ED14F3D00256D7E /* EditInfoViewController.m in Sources */,
@@ -807,6 +838,7 @@
 				A89F2DE61ED2EAC3009238D3 /* LoginViewC.m in Sources */,
 				A89485A71ECE951300D0862F /* AppDelegate.m in Sources */,
 				E9E15C691ED181A6001288BD /* ScenicModel.m in Sources */,
+				A8364AF61ED42C9A00EDD65D /* XiaKeAnswerVC.m in Sources */,
 				A89485AE1ECE9B4F00D0862F /* XiaKeTabBar.m in Sources */,
 				E9E15C951ED1A108001288BD /* ImagePreview.m in Sources */,
 				A89485A11ECE950800D0862F /* main.m in Sources */,

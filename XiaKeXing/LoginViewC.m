@@ -36,13 +36,12 @@
     self.navigationController.navigationBar.barTintColor = ZYWhite;
     [super viewWillDisappear:animated];
     [self removeBgView];
-//    [SVProgressHUD dismiss];
+    [SVProgressHUD dismiss];
 }
 
 - (void)setUpNav {
     self.title = @"登录";
 }
-
 
 - (void)setUpText {
     [self.secretNumberTF setSecureTextEntry:YES];
@@ -59,18 +58,17 @@
 
 - (IBAction)loginClick:(UIButton *)sender {
     [self AddBgEnable];
-//    [SVProgressHUD showWithStatus:@"正在登录"];
+    [SVProgressHUD showWithStatus:@"正在登录"];
     if ([self.phoneNumberTF.text isEqualToString:[userTokenTool getAccont]]) {
         if ([self.secretNumberTF.text isEqualToString:[userTokenTool getSecret]]) {
             [[NSUserDefaults standardUserDefaults]setObject:@"token" forKey:@"token"];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//                [SVProgressHUD showErrorWithStatus:@"登录成功"];
+                [SVProgressHUD showErrorWithStatus:@"登录成功"];
                 [UIApplication sharedApplication].keyWindow.rootViewController = [[XiaKeTabBar alloc] init];
             });
-        }
-//            else [SVProgressHUD showErrorWithStatus:@"密码错误"];
-    }
-//        else [SVProgressHUD showErrorWithStatus:@"没有这个账号"];
+        } else [SVProgressHUD showErrorWithStatus:@"密码错误"];
+    } else [SVProgressHUD showErrorWithStatus:@"没有这个账号"];
+    [self removeBgView];
 }
 
 - (void)AddBgEnable {

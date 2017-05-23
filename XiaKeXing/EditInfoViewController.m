@@ -24,7 +24,7 @@ static NSString * editInfoCellID = @"editInfo";
 
 - (void)setupTableView
 {
-    //    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.frame = CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 64);
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -75,19 +75,25 @@ static NSString * editInfoCellID = @"editInfo";
     [self.navigationController popViewControllerAnimated:YES];
     
     EditInfoCell *cell0 = [_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    [[NSUserDefaults standardUserDefaults] setObject:cell0.infoTextfield.text forKey:KUserName];
-    
+    if (cell0.infoTextfield.text.length != 0) {
+        [[NSUserDefaults standardUserDefaults] setObject:cell0.infoTextfield.text forKey:KUserName];
+    }
+
     EditInfoCell *cell1 = [_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-    [[NSUserDefaults standardUserDefaults] setObject:cell1.infoTextfield.text forKey:KUserSex];
-    
+    if (cell1.infoTextfield.text.length != 0) {
+        [[NSUserDefaults standardUserDefaults] setObject:cell1.infoTextfield.text forKey:KUserSex];
+    }
+
     EditInfoCell *cell2 = [_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
-    [[NSUserDefaults standardUserDefaults] setObject:cell2.infoTextfield.text forKey:KUserSite];
+    if (cell2.infoTextfield.text.length !=0) {
+        [[NSUserDefaults standardUserDefaults] setObject:cell2.infoTextfield.text forKey:KUserSite];
+    }
     
     EditInfoCell *cell3 = [_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
-    [[NSUserDefaults standardUserDefaults] setObject:cell3.infoTextfield.text forKey:KUserIntroduce];
+    if (cell3.infoTextfield.text.length != 0) {
+        [[NSUserDefaults standardUserDefaults] setObject:cell3.infoTextfield.text forKey:KUserIntroduce];
+    }
     [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    
     
     if (self.saveBtnClickBlock) {
         self.saveBtnClickBlock();

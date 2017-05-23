@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface XiaKeMainCell : UITableViewCell
-- (void)setTest;
+@property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
+- (void)setTestWithDict:(NSDictionary *)dict;
 @end

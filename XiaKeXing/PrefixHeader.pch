@@ -46,6 +46,7 @@
 #define KUserSite @"site"
 #define KUserIntroduce @"introduce"
 #import "userTokenTool.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 #endif
 #endif /* PrefixHeader_pch */

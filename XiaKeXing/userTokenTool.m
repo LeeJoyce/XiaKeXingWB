@@ -18,6 +18,8 @@
 + (NSString *)getToken { return [[NSUserDefaults standardUserDefaults] objectForKey:@"token"];}
 + (NSData *)getIcon { return [[NSUserDefaults standardUserDefaults] objectForKey:@"icon"];}
 
+
++ (NSString *)getName { return [[NSUserDefaults standardUserDefaults] objectForKey:KUserName];}
 + (NSString *)getAccont {return [[NSUserDefaults standardUserDefaults] objectForKey:@"accont"];}
 + (NSString *)getSecret {return [[NSUserDefaults standardUserDefaults] objectForKey:@"secret"];}
 

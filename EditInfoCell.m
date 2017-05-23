@@ -18,7 +18,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    self.infoTextfield.textColor = ZYGray(92);
 }
 
 - (void)setSourceWithIndex:(NSIndexPath *)index

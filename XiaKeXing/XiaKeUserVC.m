@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *userInfo;
 @property (weak, nonatomic) IBOutlet UIButton *Question;
 @property (weak, nonatomic) IBOutlet UIButton *regisBtn;
+@property (weak, nonatomic) IBOutlet UIButton *regised;
 
 @end
 
@@ -27,32 +28,55 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"我的";
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(iconClick)];\
-    [self.icon addGestureRecognizer:tap];
+    [self iconBaseSet];
 }
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setViewsWithIsLogin];
+}
+
+- (void)iconBaseSet {
+    self.icon.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(iconClick)];
+    tap.numberOfTapsRequired = 1;
+    tap.numberOfTouchesRequired = 1;
+    [self.icon addGestureRecognizer:tap];
+    
+    self.icon.layer.cornerRadius = self.icon.zy_width * 0.5;
+    self.icon.layer.masksToBounds = YES;
 }
 
 - (void)iconClick {
     if ([userTokenTool isLogin] == YES) {
         [self setPhotoAlert];
     }else {
+        
     }
 }
 
 - (void)setViewsWithIsLogin {
     if ([userTokenTool isLogin] == YES) {
+        if ([userTokenTool getIcon] != nil) {
+            self.icon.image = [UIImage imageWithData:[userTokenTool getIcon]];
+        }
+        if ([userTokenTool getName].length != 0) {
+            self.name.text = [userTokenTool getName];
+        }else self.name.text = @"匿名用户";
+        
         self.myInterested.hidden = NO;
         self.userInfo.hidden = NO;
         self.Question.hidden = NO;
         self.regisBtn.hidden = YES;
+        self.regised.hidden = NO;
     }else {
+        self.name.text = @"未登录";
+        self.icon.image = [UIImage imageNamed:@"login"];
         self.myInterested.hidden = YES;
         self.userInfo.hidden = YES;
         self.Question.hidden = YES;
         self.regisBtn.hidden = NO;
+        self.regised.hidden = YES;
     }
 }
 
@@ -60,12 +84,19 @@
     [self.navigationController pushViewController:[[LoginViewC alloc] init] animated:YES];
 }
 
+- (IBAction)regisedToken:(id)sender {
+    [userTokenTool removeUserKey];
+    [self setViewsWithIsLogin];
+}
+
 - (IBAction)InterestedClick:(id)sender {
     [self.navigationController pushViewController:[[XiaKeInterestedTVC alloc] init] animated:YES];
 }
+
 - (IBAction)userInfoClick:(id)sender {
     [self.navigationController pushViewController:[[XiaKeUserInfoVC alloc] init] animated:YES];
 }
+
 - (IBAction)questionClick:(id)sender {
     [self.navigationController pushViewController:[[XiaKeQuestionVC alloc] init] animated:YES];
 }
@@ -85,7 +116,6 @@
     
     [[NSUserDefaults standardUserDefaults] setObject:ImageData forKey:@"icon"];
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-    
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {

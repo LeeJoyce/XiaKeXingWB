@@ -10,10 +10,12 @@
 #import "XiaKeMainCell.h"
 #import "SearchResultController.h"
 
+
 @interface XiaKeMainPage ()<UISearchBarDelegate,UITableViewDataSource,UITableViewDelegate>
 
 @property (strong, nonatomic) UISearchBar *search;
 @property (strong, nonatomic) UITableView *table;
+@property (strong, nonatomic) NSMutableArray *jsonArr;
 
 @end
 
@@ -38,13 +40,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 6;
+    return self.jsonArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     XiaKeMainCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tips"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [cell setTest];
+    [cell setTestWithDict:self.jsonArr[indexPath.row]];
     return cell;
 }
 
@@ -81,10 +83,21 @@
         _table.delegate = self;
         _table.backgroundColor = ZYGray(200);
         [_table registerNib:[UINib nibWithNibName:NSStringFromClass([XiaKeMainCell class]) bundle:nil] forCellReuseIdentifier:@"tips"];
-//        _table.rowHeight = 200;
         _table.estimatedRowHeight = 50;
     }
     return _table;
 }
+
+- (NSMutableArray *)jsonArr {
+    if (_jsonArr == nil) {
+        NSString *filePath = [[NSBundle mainBundle]pathForResource:@"demo1" ofType:@"json"];
+        NSData *jData = [[NSData alloc] initWithContentsOfFile:filePath];
+        NSError *error;
+        NSArray *jsonObject = [NSJSONSerialization JSONObjectWithData:jData options:kNilOptions error:&error];
+        _jsonArr = [jsonObject mutableCopy];
+    }
+    return _jsonArr;
+}
+
 
 @end

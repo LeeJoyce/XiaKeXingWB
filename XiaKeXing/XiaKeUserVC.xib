@@ -18,6 +18,7 @@
                 <outlet property="myInterested" destination="igx-nI-QDE" id="87H-lO-DpX"/>
                 <outlet property="name" destination="lGP-EU-kxe" id="onx-pQ-stb"/>
                 <outlet property="regisBtn" destination="EvP-wD-5Rd" id="8An-LM-HjK"/>
+                <outlet property="regised" destination="5h8-3J-Zlk" id="CaS-h5-jLM"/>
                 <outlet property="userInfo" destination="Z4m-JQ-trE" id="RIa-VO-E2i"/>
                 <outlet property="view" destination="g1Q-wc-9L0" id="Tc2-rw-374"/>
             </connections>
@@ -90,6 +91,16 @@
                         <action selector="regisClick:" destination="-1" eventType="touchUpInside" id="sRo-J3-2a1"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5h8-3J-Zlk">
+                    <rect key="frame" x="0.0" y="392" width="375" height="45"/>
+                    <color key="backgroundColor" red="0.53725490200000003" green="0.56862745100000001" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="注销">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="regisedToken:" destination="-1" eventType="touchUpInside" id="ITt-oz-hoE"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
@@ -98,8 +109,10 @@
                 <constraint firstItem="Z4m-JQ-trE" firstAttribute="height" secondItem="igx-nI-QDE" secondAttribute="height" id="4ww-Kd-nzB"/>
                 <constraint firstItem="uaM-cM-ysC" firstAttribute="top" secondItem="igx-nI-QDE" secondAttribute="bottom" constant="20" id="8b2-pL-4Vk"/>
                 <constraint firstItem="Z4m-JQ-trE" firstAttribute="leading" secondItem="igx-nI-QDE" secondAttribute="trailing" id="8ht-Ue-Boh"/>
+                <constraint firstItem="5h8-3J-Zlk" firstAttribute="top" secondItem="uaM-cM-ysC" secondAttribute="bottom" constant="20" id="BrQ-ga-cgu"/>
                 <constraint firstItem="uaM-cM-ysC" firstAttribute="leading" secondItem="g1Q-wc-9L0" secondAttribute="leading" id="C60-ZZ-qnl"/>
                 <constraint firstItem="FgD-eG-HgR" firstAttribute="height" secondItem="g1Q-wc-9L0" secondAttribute="height" multiplier="0.15" id="CmX-b1-giZ"/>
+                <constraint firstAttribute="trailing" secondItem="5h8-3J-Zlk" secondAttribute="trailing" id="D7d-xg-gnC"/>
                 <constraint firstItem="FgD-eG-HgR" firstAttribute="leading" secondItem="g1Q-wc-9L0" secondAttribute="leading" constant="20" id="Dlc-SR-s7y"/>
                 <constraint firstItem="Z4m-JQ-trE" firstAttribute="bottom" secondItem="igx-nI-QDE" secondAttribute="bottom" id="G22-Br-keu"/>
                 <constraint firstItem="Z4m-JQ-trE" firstAttribute="width" secondItem="igx-nI-QDE" secondAttribute="width" id="HaF-75-24q"/>
@@ -107,6 +120,7 @@
                 <constraint firstItem="PiP-qd-Moe" firstAttribute="bottom" secondItem="igx-nI-QDE" secondAttribute="bottom" id="QKf-HQ-AC1"/>
                 <constraint firstAttribute="trailing" secondItem="uaM-cM-ysC" secondAttribute="trailing" id="Qkj-Yo-ZGQ"/>
                 <constraint firstItem="FgD-eG-HgR" firstAttribute="top" secondItem="g1Q-wc-9L0" secondAttribute="top" constant="84" id="RFW-NY-lGX"/>
+                <constraint firstItem="5h8-3J-Zlk" firstAttribute="height" secondItem="uaM-cM-ysC" secondAttribute="height" id="Tf9-am-Jzz"/>
                 <constraint firstItem="lGP-EU-kxe" firstAttribute="leading" secondItem="FgD-eG-HgR" secondAttribute="trailing" constant="15" id="ZA1-oe-Tlh"/>
                 <constraint firstItem="PiP-qd-Moe" firstAttribute="trailing" secondItem="igx-nI-QDE" secondAttribute="trailing" id="b72-XR-09t"/>
                 <constraint firstItem="lGP-EU-kxe" firstAttribute="top" secondItem="FgD-eG-HgR" secondAttribute="top" id="brG-HL-ny3"/>
@@ -114,6 +128,7 @@
                 <constraint firstItem="EvP-wD-5Rd" firstAttribute="leading" secondItem="g1Q-wc-9L0" secondAttribute="leading" id="gxh-Bt-S75"/>
                 <constraint firstItem="igx-nI-QDE" firstAttribute="top" secondItem="FgD-eG-HgR" secondAttribute="bottom" constant="78" id="mbF-Nx-UIS"/>
                 <constraint firstItem="EvP-wD-5Rd" firstAttribute="height" secondItem="igx-nI-QDE" secondAttribute="height" id="qLQ-9M-3SJ"/>
+                <constraint firstItem="5h8-3J-Zlk" firstAttribute="leading" secondItem="g1Q-wc-9L0" secondAttribute="leading" id="sxr-pN-FrR"/>
                 <constraint firstItem="EvP-wD-5Rd" firstAttribute="top" secondItem="igx-nI-QDE" secondAttribute="top" id="v9X-mt-Qwo"/>
                 <constraint firstAttribute="trailing" secondItem="EvP-wD-5Rd" secondAttribute="trailing" id="vqy-qW-fDo"/>
                 <constraint firstItem="igx-nI-QDE" firstAttribute="leading" secondItem="g1Q-wc-9L0" secondAttribute="leading" id="xmm-yB-AC3"/>

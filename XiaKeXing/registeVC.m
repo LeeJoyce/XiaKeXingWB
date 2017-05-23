@@ -38,7 +38,7 @@
 {
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.barTintColor = ZYWhite;
-//    [SVProgressHUD dismiss];
+    [SVProgressHUD dismiss];
     [self removeBgView];
     [self.view endEditing:YES];
 }
@@ -71,10 +71,10 @@
 
 - (IBAction)regisLogin:(id)sender {
     [self AddBgEnable];
-//    [SVProgressHUD showWithStatus:@"正在验证注册"];
+    [SVProgressHUD showWithStatus:@"正在验证注册"];
     if ([[userTokenTool getAccont] isEqualToString: self.phoneNumberTF.text]) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//            [SVProgressHUD showErrorWithStatus:@"已经注册过这个账号"];
+            [SVProgressHUD showErrorWithStatus:@"已经注册过这个账号"];
             [self removeBgView];
         });
         return;
@@ -83,7 +83,7 @@
     [[NSUserDefaults standardUserDefaults] setObject:self.secretNumberTF.text forKey:@"secret"];
     [[NSUserDefaults standardUserDefaults] setObject:@"token" forKey:@"token"];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [SVProgressHUD showSuccessWithStatus:@"注册登录成功"];
+        [SVProgressHUD showSuccessWithStatus:@"注册登录成功"];
         [UIApplication sharedApplication].keyWindow.rootViewController = [[XiaKeTabBar alloc] init];
     });
 }
