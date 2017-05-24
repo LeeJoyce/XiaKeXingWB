@@ -11,12 +11,13 @@
 #import "SearchResultController.h"
 
 
-@interface XiaKeMainPage ()<UISearchBarDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface XiaKeMainPage ()<UISearchBarDelegate,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 
 @property (strong, nonatomic) UISearchBar *search;
 @property (strong, nonatomic) UITableView *table;
 @property (strong, nonatomic) NSMutableArray *jsonArr;
 @property (strong, nonatomic) NSMutableArray *myArr;
+@property (strong, nonatomic) NSString *say;
 
 @end
 
@@ -53,6 +54,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     XiaKeMainCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tips"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+       [cell.commeont addTarget:self action:@selector(commentClick) forControlEvents:UIControlEventTouchUpInside];
     if (indexPath.row < self.myArr.count) {
         [cell setTestWithDict:self.myArr[indexPath.row]];
     }else {
@@ -60,6 +62,34 @@
     }
     return cell;
 }
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+    self.say = textField.text;
+   return YES;
+}
+
+- (void)commentClick {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"评论" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"我想说点什么...";
+        textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        textField.borderStyle = UITextBorderStyleRoundedRect;
+        textField.delegate = self;
+    }];
+    
+    UIAlertAction *act = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    
+    UIAlertAction *act1 = [UIAlertAction actionWithTitle:@"评论" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        if (self.say.length == 0) {
+            [SVProgressHUD showErrorWithStatus:@"不能发送空评论"];
+        }else [SVProgressHUD showSuccessWithStatus:@"评论成功"];
+    }];
+    [alert addAction:act];
+    [alert addAction:act1];
+    [self.navigationController presentViewController:alert animated:YES completion:nil];
+}
+
 
 #pragma mark - UISearchBarDelegate
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar

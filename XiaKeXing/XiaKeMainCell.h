@@ -10,5 +10,6 @@
 
 @interface XiaKeMainCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
+@property (weak, nonatomic) IBOutlet UIButton *commeont;
 - (void)setTestWithDict:(NSDictionary *)dict;
 @end

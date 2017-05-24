@@ -9,8 +9,10 @@
 #import "XiaKeInterestedTVC.h"
 #import "XiaKeMainCell.h"
 
-@interface XiaKeInterestedTVC ()
+@interface XiaKeInterestedTVC ()<UITextFieldDelegate>
+
 @property (strong, nonatomic)NSMutableArray *arr;
+@property (strong, nonatomic)NSString *say;
 
 @end
 
@@ -41,12 +43,39 @@
     cell.deleteBtn.hidden = NO;
     cell.deleteBtn.tag = indexPath.row;
     [cell.deleteBtn addTarget:self action:@selector(deleteRelease:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.commeont addTarget:self action:@selector(commentClick) forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
 
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+    self.say = textField.text;
+    return YES;
+}
+
+- (void)commentClick {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"评论" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"我想说点什么...";
+        textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        textField.borderStyle = UITextBorderStyleRoundedRect;
+        textField.delegate = self;
+    }];
+    
+    UIAlertAction *act = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    
+    UIAlertAction *act1 = [UIAlertAction actionWithTitle:@"评论" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        if (self.say.length == 0) {
+            [SVProgressHUD showErrorWithStatus:@"不能发送空评论"];
+        }else [SVProgressHUD showSuccessWithStatus:@"评论成功"];
+    }];
+    [alert addAction:act];
+    [alert addAction:act1];
+    [self.navigationController presentViewController:alert animated:YES completion:nil];
+}
+
+
 - (void)deleteRelease:(UIButton *)btn {
-    NSLog(@"%zd",btn.tag);
-    NSLog(@"%zd",self.arr.count);
     [self.arr removeObjectAtIndex:btn.tag];
     [[NSUserDefaults standardUserDefaults] setObject:self.arr forKey:@"myRelease"];
     [self.tableView reloadData];

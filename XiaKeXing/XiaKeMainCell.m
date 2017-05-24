@@ -15,7 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *time;
 @property (weak, nonatomic) IBOutlet UILabel *scenic;
 @property (weak, nonatomic) IBOutlet UILabel *scenicDetial;
-@property (weak, nonatomic) IBOutlet UIButton *commeont;
 @property (weak, nonatomic) IBOutlet UIButton *agree;
 
 @property (weak, nonatomic) IBOutlet UIImageView *Img;
@@ -32,6 +31,8 @@
     [self.agree addTarget:self action:@selector(agreeClick:) forControlEvents:UIControlEventTouchUpInside];
     self.Img.image = [[UIImage imageNamed:@"timg"] getWantImageWithSize:CGSizeMake(200, 100)];
 }
+
+
 
 - (void)agreeClick:(UIButton *)btn {
     btn.selected = !btn.selected;
