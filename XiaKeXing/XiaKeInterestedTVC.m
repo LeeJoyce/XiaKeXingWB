@@ -10,6 +10,7 @@
 #import "XiaKeMainCell.h"
 
 @interface XiaKeInterestedTVC ()
+@property (strong, nonatomic)NSMutableArray *arr;
 
 @end
 
@@ -21,24 +22,35 @@
     self.title = @"我的趣事";
     self.tableView.estimatedRowHeight = 50;
     self.tableView.tableFooterView = [[UIView alloc] init];
+    self.arr = [[[NSUserDefaults standardUserDefaults] objectForKey:@"myRelease"] mutableCopy];
 }
 
-#pragma mark - Table view data source
 
+#pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return self.arr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     XiaKeMainCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    [cell setTestWithDict:self.arr[indexPath.row]];
     cell.deleteBtn.hidden = NO;
+    cell.deleteBtn.tag = indexPath.row;
+    [cell.deleteBtn addTarget:self action:@selector(deleteRelease:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
 
+- (void)deleteRelease:(UIButton *)btn {
+    NSLog(@"%zd",btn.tag);
+    NSLog(@"%zd",self.arr.count);
+    [self.arr removeObjectAtIndex:btn.tag];
+    [[NSUserDefaults standardUserDefaults] setObject:self.arr forKey:@"myRelease"];
+    [self.tableView reloadData];
+}
 
 
 @end

@@ -16,6 +16,7 @@
 @property (strong, nonatomic) UISearchBar *search;
 @property (strong, nonatomic) UITableView *table;
 @property (strong, nonatomic) NSMutableArray *jsonArr;
+@property (strong, nonatomic) NSMutableArray *myArr;
 
 @end
 
@@ -34,19 +35,29 @@
     [self.view addSubview:self.table];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.myArr = [[[NSUserDefaults standardUserDefaults] objectForKey:@"myRelease"] mutableCopy];
+    [self.table reloadData];
+}
+
 #pragma mark - UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.jsonArr.count;
+    return self.jsonArr.count + self.myArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     XiaKeMainCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tips"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [cell setTestWithDict:self.jsonArr[indexPath.row]];
+    if (indexPath.row < self.myArr.count) {
+        [cell setTestWithDict:self.myArr[indexPath.row]];
+    }else {
+        [cell setTestWithDict:self.jsonArr[indexPath.row - self.myArr.count]];
+    }
     return cell;
 }
 

@@ -56,8 +56,18 @@ static CGFloat photoBtnMargin = 10;
     _btnCount = 0;
 }
 
-- (void)setupRelease
-{
+- (void)viewWillAppear:(BOOL)animated {
+    if ([userTokenTool isLogin] == NO) {
+        [SVProgressHUD showInfoWithStatus:@"您还没有登录"];
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [SVProgressHUD dismiss];
+}
+
+- (void)setupRelease {
     UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithTitle:@"发表" style:UIBarButtonItemStylePlain target:self action:@selector(releaseThing)];
     [right setTintColor:[UIColor lightGrayColor]];
     self.navigationItem.rightBarButtonItem = right;
@@ -185,6 +195,37 @@ static CGFloat photoBtnMargin = 10;
 //发表
 - (void)releaseThing
 {
+    if ([userTokenTool isLogin] == NO) {
+        [SVProgressHUD showInfoWithStatus:@"请先登录"];
+        return;
+    }
+    if (self.sceneTextField.text.length == 0 && self.releaseTextView.text.length == 0) {
+        [SVProgressHUD showInfoWithStatus:@"不能发布空的趣事哦"];
+        return;
+    }
+    
+    NSMutableArray *myArr = [[[NSUserDefaults standardUserDefaults] objectForKey:@"myRelease"] mutableCopy];
+    if (myArr == nil) {
+        myArr = [NSMutableArray array];
+    }
+    NSMutableDictionary *sentDict = [NSMutableDictionary dictionary];
+    [sentDict setObject:self.sceneTextField.text forKey:@"address"];
+    [sentDict setObject:self.releaseTextView.text forKey:@"title"];
+    [sentDict setObject:[NSDate date] forKey:@"time"];
+    
+    if ([userTokenTool getName].length == 0) {
+        [sentDict setObject:@"匿名用户"forKey:@"nick"];
+    }else [sentDict setObject:[userTokenTool getName] forKey:@"nick"];
+    
+    if ([userTokenTool getIcon] == nil) {
+        [sentDict setObject:@"nologin" forKey:@"icon"];
+    }else [sentDict setObject:[userTokenTool getIcon] forKey:@"icon"];
+    
+    [sentDict setObject:@"" forKey:@"img_url"];
+    [sentDict setObject:@"0" forKey:@"agressNum"];
+    [myArr addObject:sentDict];
+    [[NSUserDefaults standardUserDefaults] setObject:myArr forKey:@"myRelease"];
+    
     SuccessSubmitController *success = [[SuccessSubmitController alloc] init];
     [self.navigationController pushViewController:success animated:YES];
 }
